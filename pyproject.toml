@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "claude-voice"
+version = "0.1.0"
+description = "Claude Code reads its answers out loud with a local neural voice."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Johan Le Bray", email = "15625131+jlebray@users.noreply.github.com" }]
+requires-python = ">=3.10"
+dependencies = [
+  "kokoro-onnx>=0.4",
+  "sounddevice>=0.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+claude-voice = "claude_voice.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
